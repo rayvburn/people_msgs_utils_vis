@@ -6,7 +6,7 @@
 // global publisher for markers
 ros::Publisher pub;
 
-visualization_msgs::MarkerArray createGroupMarkers(
+visualization_msgs::MarkerArray createMarkers(
 	const people_msgs_utils::Groups& groups,
 	const std::string& frame_id
 ) {
@@ -87,7 +87,7 @@ void peopleCallback(const people_msgs::People& people) {
 	people_msgs_utils::Groups grp;
 	std::tie(ppl, grp) = people_msgs_utils::createFromPeople(people.people);
 	// create markers
-	auto markers_groups = createGroupMarkers(grp, people.header.frame_id);
+	auto markers_groups = createMarkers(grp, people.header.frame_id);
 
 	// publish
 	pub.publish(markers_groups);
