@@ -82,6 +82,11 @@ visualization_msgs::MarkerArray createMarkers(
 }
 
 void peopleCallback(const people_msgs::People& people) {
+	if (!pub.getNumSubscribers()) {
+		// nothing to do
+		return;
+	}
+
 	// convert to custom types
 	people_msgs_utils::People ppl;
 	people_msgs_utils::Groups grp;
