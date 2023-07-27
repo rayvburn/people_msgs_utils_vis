@@ -47,8 +47,8 @@ visualization_msgs::MarkerArray createMarkers(
 			member_marker.color.g = 0.2;
 			member_marker.color.b = 0.2;
 			member_marker.lifetime = ros::Duration(1.0);
-			member_marker.scale.x = 0.15;
-			member_marker.scale.y = 0.15;
+			member_marker.scale.x = 0.30;
+			member_marker.scale.y = 0.30;
 			member_marker.scale.z = 1.6;
 
 			marker_array.markers.push_back(member_marker);
