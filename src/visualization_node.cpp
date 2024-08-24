@@ -210,8 +210,6 @@ visualization_msgs::MarkerArray createMarkers(
 			visualization_msgs::Marker member_marker;
 			member_marker.header = group_marker.header;
 			member_marker.pose = member.getPose();
-			// make it visible
-			member_marker.pose.position.z += 0.1;
 			member_marker.action = visualization_msgs::Marker::ADD;
 			member_marker.type = visualization_msgs::Marker::CYLINDER;
 			member_marker.ns = "groups/members";
@@ -223,7 +221,9 @@ visualization_msgs::MarkerArray createMarkers(
 			member_marker.lifetime = ros::Duration(1.0);
 			member_marker.scale.x = 0.30;
 			member_marker.scale.y = 0.30;
-			member_marker.scale.z = 1.6;
+			member_marker.scale.z = 1.8;
+			// apply offset so the marker is not below the ground
+			member_marker.pose.position.z += member_marker.scale.z / 2.0;
 
 			marker_array.markers.push_back(member_marker);
 		}
